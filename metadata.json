@@ -1,0 +1,7 @@
+{
+  "name": "AetherWaves",
+  "description": "A serene, sci-fi inspired audio visualizer that transforms ambient sound into healing light patterns.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
