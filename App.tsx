@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AudioEngine } from './components/AudioEngine';
 import { Introduction } from './components/Introduction';
 import { UIControls } from './components/UIControls';
+import { Particles } from './components/Particles';
 
 const App: React.FC = () => {
   const [started, setStarted] = useState(false);
@@ -19,7 +20,7 @@ const App: React.FC = () => {
     ana.smoothingTimeConstant = 0.92; // High smoothing for "liquid" feel
     
     // Gain allows us to control sensitivity
-    gain.gain.value = 1.5; 
+    gain.gain.value = 2.2; 
 
     source.connect(gain);
     gain.connect(ana);
@@ -82,13 +83,18 @@ const App: React.FC = () => {
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden flex flex-col items-center justify-center">
       {/* Background Ambience */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-900 via-[#050505] to-black opacity-80 z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#101a2c] via-[#050810] to-black opacity-90 z-0 pointer-events-none" />
 
       {/* Main Visualizer Layer */}
       {started && analyser ? (
         <AudioEngine analyser={analyser} />
       ) : (
-        <Introduction onStart={handleStart} />
+        <>
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <Particles />
+          </div>
+          <Introduction onStart={handleStart} />
+        </>
       )}
 
       {/* Foreground UI */}
@@ -96,7 +102,7 @@ const App: React.FC = () => {
         <>
           <UIControls gainNode={gainNode} />
           {simulationMode && (
-            <div className="absolute top-8 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-cyan-900/20 border border-cyan-800/30 text-cyan-500/50 text-xs tracking-widest uppercase pointer-events-none animate-pulse">
+            <div className="absolute top-8 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-amber-900/20 border border-amber-800/30 text-amber-500/50 text-xs tracking-widest uppercase pointer-events-none animate-pulse">
               Simulation Mode
             </div>
           )}
