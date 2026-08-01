@@ -79,9 +79,12 @@ aetherwaves/
 ├── App.tsx                 # 主应用组件
 ├── index.tsx               # 应用入口点
 ├── index.html              # HTML 模板
+├── index.css               # Tailwind 入口样式
 ├── package.json            # 项目依赖和脚本
 ├── tsconfig.json           # TypeScript 配置
-└── vite.config.ts          # Vite 构建配置
+├── vite.config.ts          # Vite 构建配置
+├── tailwind.config.js      # Tailwind CSS 配置
+└── postcss.config.js       # PostCSS 配置
 ```
 
 ## 🎨 可视化原理
