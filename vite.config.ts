@@ -5,6 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      // 应用根路径，部署在子路径（如 GitHub Pages /AetherWaves/）时生效
+      base: '/AetherWaves/',
       server: {
         port: 3000,
         host: '0.0.0.0',
